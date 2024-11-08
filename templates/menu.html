@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Bakery Menu{% endblock %}
+
+{% block content %}
+
+<center>
+<h2>Menu</h2>
+<form action="/checkout" method="post">
+    <ul>
+        {% for item in items %}
+            <li>
+                <label>
+                    <input type="checkbox" name="item" value="{{ item.id }}">
+                    {{ item.name }} - ${{ item.price }}
+                </label>
+            </li>
+        {% endfor %}
+    </ul>
+    <button type="submit">Checkout</button>
+</form>
+</center>
+{% endblock %}
